@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simultaneous Equation Solver</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div>
+                    <h1>Simultaneous Equation Solver</h1>
+            <p>This website solves simultaneous equations using trial and error.</p>
+            <script src="https://unpkg.com/mathjs@12.4.2/lib/browser/math.js"></script>
+            <script src="script.js"></script>
+
+            <label for="equation-one">Equation One</label>
+            <input type="text" id="equation-one" value="x + y = 8" />
+
+            <br>
+
+            <label for="equation-two">Equation Two</label>
+            <input type="text" id="equation-two" value="2x - y = 7" />
+
+            <br><br>
+
+            <label for="variable-one-name">Name for Variable One</label>
+            <input type="text" id="variable-one-name" value="x" />
+
+            <br>
+
+            <label for="variable-two-name">Name for Variable Two</label>
+            <input type="text" id="variable-two-name" value="y" />
+
+            <br><br>
+
+            <label for="attempt-range">Timeout when reached (max number to attempt): </label>
+            <input type="number" id="attempt-range" value=100 />
+
+            <br><br><br>
+            
+            <input type="checkbox" id="table-enabled" />
+            <label for="table-enabled">Enable table (reduces performance)</label>
+            <br><br>
+            <button onclick="useInputsAndSolve()">
+                Solve
+            </button><span id="status" style="display: none">Calculating...</span>
+
+            <br><br>
+
+            <b>Output:</b><br> <textarea id="output" readonly style="height: 165px; width: 380px;"> </textarea>
+            <!--
+                Steps for trial and error:
+                1. Check any possible combination of numbers within a range.
+                2. Check whether or not the equations are true.
+                3. If they are not, keep trying. Store already tried values in an array, and don't try them again.
+                4. Once the correct values are found, display them.
+            -->
+        </div>
+        <div>
+            <table style="width:100%" id="table">
+                
+            </table>
+        </div>
+    </div>
+    
+
+    
+
+</body>
+</html>
